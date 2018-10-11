@@ -5,6 +5,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import studio.exodius.quizzibles.controllers.HomeController;
+import studio.exodius.quizzibles.utility.Document;
+import studio.exodius.quizzibles.utility.Loader;
 
 import java.net.URL;
 

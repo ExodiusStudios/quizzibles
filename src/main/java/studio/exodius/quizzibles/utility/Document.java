@@ -1,4 +1,4 @@
-package studio.exodius.quizzibles;
+package studio.exodius.quizzibles.utility;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
