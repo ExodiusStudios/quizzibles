@@ -1,10 +1,15 @@
 package studio.exodius.quizzibles;
 
+import com.google.gson.Gson;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import studio.exodius.quizzibles.controllers.HomeScreenControl;
+import studio.exodius.quizzibles.model.Quiz;
+import studio.exodius.quizzibles.utility.FileUtils;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author Julian Mills
@@ -12,9 +17,9 @@ import java.io.File;
  */
 public class Quizzibles extends Application {
 
-    public File storageDir;
+	/** The list holding all currently known quizzes */
+    public List<Quiz> quizList = new ArrayList<>();
 
-	// JavaFX Bootstrap
 	public static void main(String[] args) {
 		launch(args);
 	}
@@ -24,14 +29,34 @@ public class Quizzibles extends Application {
 		System.out.println("Loading Quizzibles...");
 
 		try {
-			storageDir = assertStorageDir();
-			System.out.println(storageDir.getAbsolutePath());
+			File storage = assertStorageDir();
+			Gson gson = new Gson();
+
+			File[] documents = storage.listFiles(child ->
+				child.getName().endsWith(".quiz")
+			);
+
+			if(documents == null) {
+				throw new RuntimeException("Failed to list read storage");
+			}
+
+			for(File doc : documents) {
+				String contents = FileUtils.readFile(doc);
+				Quiz quiz = gson.fromJson(contents, Quiz.class);
+
+				this.quizList.add(quiz);
+
+			}
 		} catch (Exception ex) {
-			ex.printStackTrace();
+			throw new RuntimeException("Failed to locate storage directory", ex);
 		}
 
+		// Load the existing quiz documents
+
+		// Create the main window
 		Window win = new Window(this, window, "Timed Java Quiz (HHS Project)");
 
+		// Open the HomeScreen
 		win.openView(new HomeScreenControl());
 
 		System.out.println("Finished initializing Quizzibles...");
@@ -62,4 +87,5 @@ public class Quizzibles extends Application {
 
         return quizziblesFolder;
     }
+
 }
