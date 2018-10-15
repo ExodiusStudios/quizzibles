@@ -1,38 +1,30 @@
 package studio.exodius.quizzibles;
 
-import javafx.application.Application;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import studio.exodius.quizzibles.controllers.HomeController;
 import studio.exodius.quizzibles.utility.Document;
 import studio.exodius.quizzibles.utility.Loader;
 
 import java.net.URL;
 
 /**
- * @author Julian Mills
+ * @author Macjuul
  * @version 1.0.0
  */
-public class Quizzible extends Application {
+public class Window {
 
+	private Quizzibles quiz;
 	private View currentView;
+
 	private Stage window;
 
-	// JavaFX Bootstrap
-	public static void main(String[] args) {
-		launch(args);
-	}
-
-	@Override
-	public void start(Stage window) {
+	public Window(Quizzibles quiz, Stage window, String title) {
+		this.quiz = quiz;
 		this.window = window;
 
-		openView(new HomeController());
-
 		window.getIcons().add(Loader.image("images/icon.png"));
-		window.setTitle("Quizzibles - Timed Java Quiz (HHS Project)");
-		window.show();
+		window.setTitle("Quizzibles - " + title);
 	}
 
 	/**
@@ -55,5 +47,27 @@ public class Quizzible extends Application {
 
 		window.setScene(scene);
 		currentView = controller;
+
+		window.show();
+	}
+
+	public Quizzibles getApp() {
+		return quiz;
+	}
+
+	/**
+	 * Update the title of this window
+	 *
+	 * @param title Title
+	 */
+	public void setTitle(String title) {
+		this.window.setTitle("Quizzibles - " + title);
+	}
+
+	/**
+	 * Exit the current window
+	 */
+	public void close() {
+		this.window.close();
 	}
 }

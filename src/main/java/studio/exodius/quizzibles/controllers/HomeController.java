@@ -3,10 +3,10 @@ package studio.exodius.quizzibles.controllers;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import studio.exodius.quizzibles.utility.Document;
-import studio.exodius.quizzibles.Quizzible;
 import studio.exodius.quizzibles.View;
 import studio.exodius.quizzibles.ViewAdapter;
+import studio.exodius.quizzibles.Window;
+import studio.exodius.quizzibles.utility.Document;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -24,7 +24,7 @@ public class HomeController extends ViewAdapter {
 	private @FXML Button btn_increment;
 
 	@Override
-	public void setup(View previous, Quizzible window) {
+	public void setup(View previous, Window window) {
 		super.setup(previous, window);
 		this.i = previous == null ? 0 : ((HomeController) previous).i;
 	}
@@ -37,7 +37,11 @@ public class HomeController extends ViewAdapter {
 		btn_increment.setOnMouseClicked(event -> {
 			this.i++;
 
-			this.window.openView(new HomeController());
+			Window win = this.window.getApp().createWindow("Hupekee");
+
+			win.openView(new HomeController());
+
+			this.window.close();
 		});
 	}
 
