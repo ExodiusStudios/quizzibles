@@ -3,7 +3,7 @@ package studio.exodius.quizzibles;
 import com.google.gson.Gson;
 import javafx.application.Application;
 import javafx.stage.Stage;
-import studio.exodius.quizzibles.controllers.HomeScreenControl;
+import studio.exodius.quizzibles.controllers.QuizControl;
 import studio.exodius.quizzibles.model.Quiz;
 import studio.exodius.quizzibles.utility.FileUtils;
 
@@ -51,13 +51,15 @@ public class Quizzibles extends Application {
 			throw new RuntimeException("Failed to locate storage directory", ex);
 		}
 
+		System.out.println(this.quizList);
+
 		// Load the existing quiz documents
 
 		// Create the main window
 		Window win = new Window(this, window, "Timed Java Quiz (HHS Project)");
 
 		// Open the HomeScreen
-		win.openView(new HomeScreenControl());
+		win.openView(new QuizControl());
 
 		System.out.println("Finished initializing Quizzibles...");
 	}
