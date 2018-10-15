@@ -1,4 +1,4 @@
-![Quizzibles](src/main/resources/images/quizzibles.png)
+![Quizzibles](media/quizzibles.png)
 
 Quizzibles is a simplistic time based quizz app in which you can create and play quizzes. This project has been written for a school assignment.
 
