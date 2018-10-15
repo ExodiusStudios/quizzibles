@@ -2,7 +2,7 @@ package studio.exodius.quizzibles;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
-import studio.exodius.quizzibles.controllers.HomeController;
+import studio.exodius.quizzibles.controllers.HomeScreenControl;
 
 /**
  * @author Julian Mills
@@ -21,7 +21,7 @@ public class Quizzibles extends Application {
 
 		Window win = new Window(this, window, "Timed Java Quiz (HHS Project)");
 
-		win.openView(new HomeController());
+		win.openView(new HomeScreenControl());
 
 		System.out.println("Finished initializing Quizzibles...");
 	}
