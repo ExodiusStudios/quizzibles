@@ -7,7 +7,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 /**
- * Class description
+ * Home screen. The player can play and create a quiz. The player can also exit the game from here.
  *
  * @author Densorius
  * @version 1.0.0
