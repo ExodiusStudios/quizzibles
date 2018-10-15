@@ -12,7 +12,7 @@ public abstract class ViewAdapter implements View {
 	public Window window;
 
 	@Override
-	public void setup(View previous, Window window) {
+	public void setup(Window window) {
 		this.window = window;
 	}
 

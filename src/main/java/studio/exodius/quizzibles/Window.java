@@ -15,7 +15,6 @@ import java.net.URL;
 public class Window {
 
 	private Quizzibles quiz;
-	private View currentView;
 
 	private Stage window;
 
@@ -40,13 +39,12 @@ public class Window {
 		String document = controller.getClass().getAnnotation(Document.class).value();
 		URL uri = Loader.url(document);
 
-		controller.setup(this.currentView, this);
+		controller.setup(this);
 
 		Parent view = Loader.scene(uri, controller);
 		Scene scene = new Scene(view);
 
 		window.setScene(scene);
-		currentView = controller;
 
 		window.show();
 	}

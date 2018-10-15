@@ -8,6 +8,6 @@ import javafx.fxml.Initializable;
  */
 public interface View extends Initializable {
 
-	void setup(View previous, Window window);
+	void setup(Window window);
 
 }

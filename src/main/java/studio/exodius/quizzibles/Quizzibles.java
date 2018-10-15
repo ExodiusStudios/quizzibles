@@ -51,15 +51,11 @@ public class Quizzibles extends Application {
 			throw new RuntimeException("Failed to locate storage directory", ex);
 		}
 
-		System.out.println(this.quizList);
-
-		// Load the existing quiz documents
-
 		// Create the main window
 		Window win = new Window(this, window, "Timed Java Quiz (HHS Project)");
 
 		// Open the HomeScreen
-		win.openView(new QuizControl());
+		win.openView(new QuizControl(this.quizList.get(0)));
 
 		System.out.println("Finished initializing Quizzibles...");
 	}

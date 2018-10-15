@@ -1,8 +1,5 @@
 package studio.exodius.quizzibles.model;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * Represents a quiz model
  *
@@ -10,9 +7,6 @@ import java.util.List;
  * @version 1.0.0
  */
 public class Quiz {
-
-	/** The slug (Short name) for this quiz */
-	public String slug = null;
 
 	/** The full length name of this quiz */
 	public String name = null;
@@ -27,5 +21,5 @@ public class Quiz {
 	public long answerDuration = 10000;
 
 	/** The questions for this quiz */
-	public List<Question> questions = new ArrayList<>();
+	public Question[] questions = new Question[0];
 }

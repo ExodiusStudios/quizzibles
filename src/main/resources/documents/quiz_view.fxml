@@ -38,7 +38,7 @@
             </VBox>
          <VBox alignment="TOP_CENTER" prefHeight="343.0" prefWidth="660.0" style="-fx-background-color: #eee;">
                <children>
-                  <ProgressBar fx:id="progress" prefHeight="11.0" prefWidth="600.0" progress="0.34" />
+                  <ProgressBar fx:id="progress" prefHeight="11.0" prefWidth="600.0" />
                   <TilePane fx:id="optionArea" alignment="TOP_CENTER" maxWidth="-Infinity" prefHeight="209.0" prefTileHeight="40.0" prefTileWidth="200.0" prefWidth="406.0">
                      <VBox.margin>
                         <Insets top="10.0" />

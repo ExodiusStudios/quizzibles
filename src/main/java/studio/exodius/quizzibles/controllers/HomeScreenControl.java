@@ -4,10 +4,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.layout.TilePane;
-import studio.exodius.quizzibles.View;
-import studio.exodius.quizzibles.Window;
-import studio.exodius.quizzibles.utility.Document;
 import studio.exodius.quizzibles.ViewAdapter;
+import studio.exodius.quizzibles.utility.Document;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -27,11 +25,6 @@ public class HomeScreenControl extends ViewAdapter {
 	@FXML private Label score;
 	@FXML private ProgressBar progress;
 	@FXML private TilePane optionArea;
-
-    @Override
-    public void setup(View previous, Window window) {
-        this.window = window;
-    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
