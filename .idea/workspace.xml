@@ -1,12 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3e8be36a-1f37-40b2-bcd2-e0f9a97d7acc" name="Default" comment="Resolved conflicts, hopefully">
-      <change afterPath="$PROJECT_DIR$/src/main/java/studio/exodius/quizzibles/controllers/HomeScreenControl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/documents/home_screen.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/documents/index.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/documents/index.fxml" afterDir="false" />
+    <list default="true" id="3e8be36a-1f37-40b2-bcd2-e0f9a97d7acc" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/src/main/resources/documents/home_screen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/documents/home_screen.fxml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -76,8 +72,8 @@
       <file leaf-file-name="home_screen.fxml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/resources/documents/home_screen.fxml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="189">
-              <caret line="9" column="45" selection-start-line="9" selection-start-column="45" selection-end-line="9" selection-end-column="45" />
+            <state relative-caret-position="104">
+              <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
             </state>
           </provider>
           <provider editor-type-id="JavaFX-Scene-Builder" />
@@ -591,6 +587,14 @@
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="documents" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="quizzibles-hhs" type="b2602c69:ProjectViewProjectNode" />
+              <item name="quizzibles-hhs" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="images" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -739,7 +743,7 @@
       <updated>1539005964801</updated>
       <workItem from="1539005968559" duration="7536000" />
       <workItem from="1539257032687" duration="1728000" />
-      <workItem from="1539588741445" duration="2576000" />
+      <workItem from="1539588741445" duration="2807000" />
     </task>
     <task id="LOCAL-00001" summary="Initialized project">
       <created>1539006571826</created>
@@ -780,7 +784,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="11840000" />
+    <option name="totallyTimeSpent" value="12071000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -830,7 +834,9 @@
     <MESSAGE value="Added design sketches" />
     <MESSAGE value="Added multi window support" />
     <MESSAGE value="Resolved conflicts, hopefully" />
-    <option name="LAST_COMMIT_MESSAGE" value="Resolved conflicts, hopefully" />
+    <MESSAGE value="Set HomeScreen as home screen" />
+    <MESSAGE value="Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;src/main/java/studio/exodius/quizzibles/Quizzible.java&#10;#&#9;src/main/java/studio/exodius/quizzibles/QuizziblesMain.java&#10;#&#9;src/main/java/studio/exodius/quizzibles/View.java&#10;#&#9;src/main/java/studio/exodius/quizzibles/ViewAdapter.java&#10;#&#9;src/main/java/studio/exodius/quizzibles/Window.java&#10;#&#9;src/main/java/studio/exodius/quizzibles/controllers/HomeController.java" />
+    <option name="LAST_COMMIT_MESSAGE" value="Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;src/main/java/studio/exodius/quizzibles/Quizzible.java&#10;#&#9;src/main/java/studio/exodius/quizzibles/QuizziblesMain.java&#10;#&#9;src/main/java/studio/exodius/quizzibles/View.java&#10;#&#9;src/main/java/studio/exodius/quizzibles/ViewAdapter.java&#10;#&#9;src/main/java/studio/exodius/quizzibles/Window.java&#10;#&#9;src/main/java/studio/exodius/quizzibles/controllers/HomeController.java" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -845,13 +851,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="10" selection-start-line="10" selection-end-line="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/studio/exodius/quizzibles/Store.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/studio/exodius/quizzibles/PageS.java" />
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_112/src.zip!/java/lang/Class.java">
@@ -861,14 +860,56 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/studio/exodius/quizzibles/controllers/HomeController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="131">
+          <caret line="28" column="36" lean-forward="true" selection-start-line="28" selection-start-column="36" selection-end-line="28" selection-end-column="36" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/studio/exodius/quizzibles/Window.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="507">
+          <caret line="67" column="30" selection-start-line="67" selection-start-column="30" selection-end-line="67" selection-end-column="30" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/studio/exodius/quizzibles/ViewAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="11" column="17" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/studio/exodius/quizzibles/View.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="10" column="36" selection-start-line="10" selection-start-column="36" selection-end-line="10" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/studio/exodius/quizzibles/Quizzibles.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="318">
+          <caret line="23" column="4" lean-forward="true" selection-start-line="23" selection-start-column="4" selection-end-line="23" selection-end-column="4" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/studio/exodius/quizzibles/utility/Loader.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="218">
           <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#661#662#0" expanded="true" />
-            <element signature="e#698#699#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -883,60 +924,35 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/studio/exodius/quizzibles/View.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/studio/exodius/quizzibles/controllers/HomeScreenControl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
-          <caret line="10" column="36" selection-start-line="10" selection-start-column="36" selection-end-line="10" selection-end-column="36" />
+          <caret line="10" selection-start-line="10" selection-end-line="10" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/studio/exodius/quizzibles/ViewAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="11" column="17" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor />
+          <second_editor />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/studio/exodius/quizzibles/Window.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="507">
-          <caret line="67" column="30" selection-start-line="67" selection-start-column="30" selection-end-line="67" selection-end-column="30" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1361#1362#0" expanded="true" />
-            <element signature="e#1417#1418#0" expanded="true" />
-            <element signature="e#1424#1425#0" expanded="true" />
-            <element signature="e#1441#1442#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/studio/exodius/quizzibles/Quizzibles.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="25" column="66" lean-forward="true" selection-start-line="25" selection-start-column="66" selection-end-line="25" selection-end-column="66" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#799#800#0" expanded="true" />
-            <element signature="e#842#843#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/studio/exodius/quizzibles/controllers/HomeController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="28" column="36" lean-forward="true" selection-start-line="28" selection-start-column="36" selection-end-line="28" selection-end-column="36" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/settings.gradle">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/documents/home_screen.fxml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="9" column="45" selection-start-line="9" selection-start-column="45" selection-end-line="9" selection-end-column="45" />
+        <state relative-caret-position="104">
+          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
         </state>
       </provider>
       <provider editor-type-id="JavaFX-Scene-Builder" />
