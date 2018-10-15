@@ -1,9 +1,7 @@
 package studio.exodius.quizzibles.controllers;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
-import javafx.scene.control.ProgressBar;
-import javafx.scene.layout.TilePane;
+import javafx.scene.control.Button;
 import studio.exodius.quizzibles.ViewAdapter;
 import studio.exodius.quizzibles.utility.Document;
 
@@ -20,14 +18,17 @@ import java.util.ResourceBundle;
 @Document("documents/home_screen.fxml")
 public class HomeScreenControl extends ViewAdapter {
 
-	@FXML private Label question;
-	@FXML private Label number;
-	@FXML private Label score;
-	@FXML private ProgressBar progress;
-	@FXML private TilePane optionArea;
+    @FXML private Button btnPlayQuiz;
+    @FXML private Button btnCreateQuiz;
+    @FXML private Button btnExitGame;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
+        System.out.println("loaded fxml");
+
+        // Exit the game
+        btnPlayQuiz.setOnMouseClicked(e -> System.out.println("Play"));
+        btnExitGame.setOnMouseClicked(e -> this.window.close());
     }
 }
