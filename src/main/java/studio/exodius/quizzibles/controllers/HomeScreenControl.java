@@ -1,7 +1,9 @@
 package studio.exodius.quizzibles.controllers;
 
-import studio.exodius.quizzibles.utility.Document;
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import studio.exodius.quizzibles.ViewAdapter;
+import studio.exodius.quizzibles.utility.Document;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -16,8 +18,17 @@ import java.util.ResourceBundle;
 @Document("documents/home_screen.fxml")
 public class HomeScreenControl extends ViewAdapter {
 
+    @FXML private Button btnPlayQuiz;
+    @FXML private Button btnCreateQuiz;
+    @FXML private Button btnExitGame;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
+        System.out.println("loaded fxml");
+
+        // Exit the game
+        btnPlayQuiz.setOnMouseClicked(e -> System.out.println("Play"));
+        btnExitGame.setOnMouseClicked(e -> this.window.close());
     }
 }

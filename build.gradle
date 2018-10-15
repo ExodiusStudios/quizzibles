@@ -16,6 +16,6 @@ dependencies {
 
 jar {
     manifest {
-        attributes 'Main-Class': 'studio.exodius.quizzibles.Main'
+        attributes 'Main-Class': 'studio.exodius.quizzibles.Quizzibles'
     }
 }
