@@ -59,8 +59,6 @@ public class QuizControl extends ViewAdapter {
 				long now = System.currentTimeMillis();
 				float prog = (float) (now - startTime) / quiz.answerDuration;
 
-				System.out.println(prog);
-
 				// Out of time!
 				if(prog >= 1) {
 					progress.setProgress(1);
