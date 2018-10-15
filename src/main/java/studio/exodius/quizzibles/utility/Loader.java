@@ -1,4 +1,4 @@
-package studio.exodius.quizzibles;
+package studio.exodius.quizzibles.utility;
 
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
