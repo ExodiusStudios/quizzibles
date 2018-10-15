@@ -13,7 +13,7 @@ import java.util.ResourceBundle;
  * @version 1.0.0
  * @since 15-10-2018
  */
-@Document("media/home_screen.fxml")
+@Document("documents/home_screen.fxml")
 public class HomeScreenControl extends ViewAdapter {
 
     @Override
