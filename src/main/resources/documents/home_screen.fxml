@@ -12,7 +12,7 @@
 <children>
       <VBox prefHeight="400.0" prefWidth="600.0">
          <children>
-            <Pane prefHeight="200.0" prefWidth="600.0" style="-fx-background-color: #eee;">
+            <Pane prefHeight="200.0" prefWidth="600.0">
                <children>
                   <ImageView fitHeight="169.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true" scaleX="0.8" scaleY="0.8" scaleZ="0.8">
                      <image>
@@ -24,7 +24,7 @@
                   <Insets />
                </opaqueInsets>
             </Pane>
-         <VBox alignment="CENTER" prefHeight="262.0" prefWidth="600.0">
+         <VBox alignment="CENTER" prefHeight="262.0" prefWidth="600.0" style="-fx-background-color: #eee;">
             <children>
                <Button fx:id="btnPlayQuiz" mnemonicParsing="false" prefWidth="100.0" text="PLAY QUIZ">
                   <VBox.margin>
