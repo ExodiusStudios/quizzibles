@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.101" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
   <children>
     <Label fx:id="lbl_clicks" layoutX="238.0" layoutY="96.0" text="Clicks: 0">
       <font>
@@ -13,9 +13,9 @@
       </font>
     </Label>
     <Button fx:id="btn_increment" layoutX="255.0" layoutY="250.0" mnemonicParsing="false" text="Increment me" />
-      <Label id="lbl_clicks" fx:id="lbl_title" alignment="CENTER" contentDisplay="CENTER" layoutX="61.0" layoutY="37.0" prefHeight="38.0" prefWidth="478.0" text="dd" textAlignment="CENTER" wrapText="true">
+      <Label id="lbl_clicks" fx:id="lbl_title" layoutX="61.0" layoutY="37.0" prefHeight="38.0" prefWidth="478.0" textAlignment="CENTER">
          <font>
-            <Font name="Arial" size="31.0" />
+            <Font name="Arial" size="11.0" />
          </font>
       </Label>
   </children>
