@@ -3,7 +3,7 @@ package studio.exodius.quizzibles;
 import com.google.gson.Gson;
 import javafx.application.Application;
 import javafx.stage.Stage;
-import studio.exodius.quizzibles.controllers.QuizControl;
+import studio.exodius.quizzibles.controllers.HomeScreenControl;
 import studio.exodius.quizzibles.model.Quiz;
 import studio.exodius.quizzibles.utility.FileUtils;
 
@@ -20,6 +20,9 @@ public class Quizzibles extends Application {
 	/** The list holding all currently known quizzes */
     public List<Quiz> quizList = new ArrayList<>();
 
+    /** The Quizzibles storage directory */
+    private File storageDir;
+
 	public static void main(String[] args) {
 		launch(args);
 	}
@@ -29,10 +32,10 @@ public class Quizzibles extends Application {
 		System.out.println("Loading Quizzibles...");
 
 		try {
-			File storage = assertStorageDir();
+			this.storageDir = assertStorageDir();
 			Gson gson = new Gson();
 
-			File[] documents = storage.listFiles(child ->
+			File[] documents = storageDir.listFiles(child ->
 				child.getName().endsWith(".quiz")
 			);
 
@@ -55,7 +58,7 @@ public class Quizzibles extends Application {
 		Window win = new Window(this, window, "Timed Java Quiz (HHS Project)");
 
 		// Open the HomeScreen
-		win.openView(new QuizControl(this.quizList.get(0)));
+		win.openView(new HomeScreenControl());
 
 		System.out.println("Finished initializing Quizzibles...");
 	}
@@ -86,4 +89,7 @@ public class Quizzibles extends Application {
         return quizziblesFolder;
     }
 
+	public File getStorageDir() {
+		return storageDir;
+	}
 }

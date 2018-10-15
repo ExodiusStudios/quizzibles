@@ -24,8 +24,8 @@
       </VBox>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #eee;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="90.0">
          <children>
-            <Button mnemonicParsing="false" text="Open quiz folder" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="50.0" />
-            <Button mnemonicParsing="false" text="Back" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="50.0" />
+            <Button mnemonicParsing="false" text="Open quiz folder" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="50.0" fx:id="openFolderButton"/>
+            <Button mnemonicParsing="false" text="Back" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="50.0" fx:id="backButton"/>
             <ScrollPane layoutX="50.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="65.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="250.0" AnchorPane.topAnchor="0.0">
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" />

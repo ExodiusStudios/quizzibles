@@ -25,10 +25,8 @@ public class HomeScreenControl extends ViewAdapter {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-        System.out.println("loaded fxml");
-
         // Exit the game
-        btnPlayQuiz.setOnMouseClicked(e -> System.out.println("Play"));
-        btnExitGame.setOnMouseClicked(e -> this.window.close());
+        btnPlayQuiz.setOnMouseClicked(e -> window.openView(new ChooseQuizScreenControl()));
+        btnExitGame.setOnMouseClicked(e -> window.close());
     }
 }
