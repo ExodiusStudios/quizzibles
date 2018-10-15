@@ -1,6 +1,6 @@
 package studio.exodius.quizzibles.controllers;
 
-import studio.exodius.quizzibles.Document;
+import studio.exodius.quizzibles.utility.Document;
 import studio.exodius.quizzibles.ViewAdapter;
 
 import java.net.URL;

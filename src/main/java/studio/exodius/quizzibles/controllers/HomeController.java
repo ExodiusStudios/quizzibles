@@ -3,7 +3,7 @@ package studio.exodius.quizzibles.controllers;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import studio.exodius.quizzibles.Document;
+import studio.exodius.quizzibles.utility.Document;
 import studio.exodius.quizzibles.QuizziblesMain;
 import studio.exodius.quizzibles.View;
 import studio.exodius.quizzibles.ViewAdapter;
