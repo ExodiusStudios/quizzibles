@@ -4,7 +4,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import studio.exodius.quizzibles.Document;
-import studio.exodius.quizzibles.Quizzible;
+import studio.exodius.quizzibles.QuizziblesMain;
 import studio.exodius.quizzibles.View;
 import studio.exodius.quizzibles.ViewAdapter;
 
@@ -24,7 +24,7 @@ public class HomeController extends ViewAdapter {
 	private @FXML Button btn_increment;
 
 	@Override
-	public void setup(View previous, Quizzible window) {
+	public void setup(View previous, QuizziblesMain window) {
 		super.setup(previous, window);
 		this.i = previous == null ? 0 : ((HomeController) previous).i;
 	}

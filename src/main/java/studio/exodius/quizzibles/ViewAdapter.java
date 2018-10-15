@@ -9,10 +9,10 @@ package studio.exodius.quizzibles;
  */
 public abstract class ViewAdapter implements View {
 
-	public Quizzible window;
+	public QuizziblesMain window;
 
 	@Override
-	public void setup(View previous, Quizzible window) {
+	public void setup(View previous, QuizziblesMain window) {
 		this.window = window;
 	}
 
