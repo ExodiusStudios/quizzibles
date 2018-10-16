@@ -12,7 +12,7 @@
    <children>
       <VBox alignment="CENTER" style="-fx-background-color: #ffff;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Label text="Play quiz">
+            <Label text="Play quiz" textFill="#515151">
                <font>
                   <Font size="48.0" />
                </font>
