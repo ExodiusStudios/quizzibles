@@ -3,7 +3,6 @@ package studio.exodius.quizzibles.controllers;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import studio.exodius.quizzibles.ViewAdapter;
 import studio.exodius.quizzibles.model.Quiz;
@@ -27,7 +26,7 @@ public class ChooseQuizScreenControl extends ViewAdapter {
     @FXML private Button backButton;
     @FXML private Button openFolderButton;
     @FXML private Button startButton;
-    @FXML private AnchorPane quizList;
+    @FXML private VBox quizList;
     @FXML private VBox quizDetails;
     @FXML private Label quizName;
     @FXML private Label quizAuthor;
