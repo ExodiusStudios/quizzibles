@@ -68,4 +68,8 @@ public class Window {
 	public void close() {
 		this.window.close();
 	}
+
+	public Stage getWindow() {
+		return this.window;
+	}
 }

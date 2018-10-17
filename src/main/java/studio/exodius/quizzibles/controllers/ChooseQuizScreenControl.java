@@ -49,7 +49,9 @@ public class ChooseQuizScreenControl extends ViewAdapter {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
+        // restore the width and height
+        window.getWindow().setHeight(window.getWindow().getHeight());
+        window.getWindow().setWidth(window.getWindow().getWidth());
     	// make the newQuizButton visible and attach a click event listener on it only
 		// if the user wants to create/edit a quiz
     	if (create) {
