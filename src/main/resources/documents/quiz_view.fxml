@@ -17,7 +17,7 @@
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
 <children>
       <ProgressBar fx:id="progress" prefHeight="11.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="120.0" />
-      <TilePane fx:id="optionArea" alignment="TOP_CENTER" maxWidth="-Infinity" prefHeight="209.0" prefTileHeight="40.0" prefTileWidth="200.0" prefWidth="406.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="137.0" />
+      <TilePane fx:id="optionArea" alignment="CENTER" maxWidth="-Infinity" prefHeight="209.0" prefTileHeight="40.0" prefTileWidth="200.0" prefWidth="406.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="137.0" />
       <VBox prefHeight="120.0" prefWidth="600.0" style="-fx-background-color: #fff;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <Label fx:id="question" alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" prefHeight="73.0" prefWidth="600.0" text="&lt; QUESTION PLACEHOLDER &gt;" textAlignment="CENTER" textFill="#515151" textOverrun="WORD_ELLIPSIS" wrapText="true">
