@@ -26,6 +26,7 @@ public class ChooseQuizScreenControl extends ViewAdapter {
     @FXML private Button backButton;
     @FXML private Button openFolderButton;
     @FXML private Button startButton;
+    @FXML private Button newQuizButton;
     @FXML private VBox quizList;
     @FXML private VBox quizDetails;
     @FXML private Label quizName;
@@ -36,8 +37,21 @@ public class ChooseQuizScreenControl extends ViewAdapter {
     /** The currently selected quizz */
     private Quiz selected;
 
+    private boolean create;
+
+    ChooseQuizScreenControl(boolean create) {
+		this.create = create;
+	}
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+    	// make the newQuizButton visible and attach a click event listener on it only
+		// if the user wants to create/edit a quiz
+    	if (create) {
+    		newQuizButton.setVisible(true);
+    		newQuizButton.setOnMouseClicked(e -> System.out.println("TBD"));
+		}
+
         backButton.setOnMouseClicked(e -> window.openView(new HomeScreenControl()));
         startButton.setOnMouseClicked(e -> window.openView(new QuizControl(selected)));
         openFolderButton.setOnMouseClicked(e -> {

@@ -72,6 +72,7 @@
                   </Button>
                </children>
             </VBox>
+            <Button fx:id="newQuizButton" layoutX="366.0" layoutY="265.0" mnemonicParsing="false" text="New quiz" visible="false" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="168.0" />
          </children>
          <padding>
             <Insets top="20.0" />
