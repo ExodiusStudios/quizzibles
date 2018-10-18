@@ -1,5 +1,9 @@
 package studio.exodius.quizzibles.controllers;
 
+import javafx.fxml.FXML;
+import javafx.scene.control.ListView;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.layout.AnchorPane;
 import studio.exodius.quizzibles.ViewAdapter;
 import studio.exodius.quizzibles.model.Quiz;
 import studio.exodius.quizzibles.utility.Document;
@@ -17,6 +21,10 @@ import java.util.ResourceBundle;
 @Document("documents/quiz_editor_screen.fxml")
 public class QuizEditorControl extends ViewAdapter {
 
+    @FXML private ListView<String> questionsList;
+    @FXML private ScrollPane questionScrollPane;
+    @FXML private AnchorPane questionAnchorPane;
+
     private Quiz quiz;
 
     QuizEditorControl(Quiz quiz) {
@@ -25,6 +33,7 @@ public class QuizEditorControl extends ViewAdapter {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
+        questionScrollPane.setFitToHeight(true);
+        questionScrollPane.setFitToWidth(true);
     }
 }
