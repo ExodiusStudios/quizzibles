@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'Raleway';
+    src: url('fonts/Raleway-Regular.ttf');
+}
+
+.title {
+    -fx-font-family: 'Raleway';
+    -fx-text-fill: #3b3b3b;
+}

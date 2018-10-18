@@ -26,7 +26,8 @@ public class HomeScreenControl extends ViewAdapter {
     public void initialize(URL location, ResourceBundle resources) {
 
         // Exit the game
-        btnPlayQuiz.setOnMouseClicked(e -> window.openView(new ChooseQuizScreenControl()));
+        btnPlayQuiz.setOnMouseClicked(e -> window.openView(new ChooseQuizScreenControl(false)));
+        btnCreateQuiz.setOnMouseClicked(e -> window.openView(new ChooseQuizScreenControl(true)));
         btnExitGame.setOnMouseClicked(e -> window.close());
     }
 }

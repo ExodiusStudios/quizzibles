@@ -3,9 +3,11 @@ package studio.exodius.quizzibles.controllers;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 import studio.exodius.quizzibles.ViewAdapter;
+import studio.exodius.quizzibles.Window;
 import studio.exodius.quizzibles.model.Quiz;
 import studio.exodius.quizzibles.utility.Document;
 
@@ -27,20 +29,51 @@ public class ChooseQuizScreenControl extends ViewAdapter {
     @FXML private Button backButton;
     @FXML private Button openFolderButton;
     @FXML private Button startButton;
-    @FXML private AnchorPane quizList;
+    @FXML private Button newQuizButton;
+    @FXML private VBox quizList;
     @FXML private VBox quizDetails;
     @FXML private Label quizName;
     @FXML private Label quizAuthor;
     @FXML private Label quizVersion;
     @FXML private Label quizHighscore;
+    @FXML private Label header;
 
     /** The currently selected quizz */
     private Quiz selected;
 
+    private boolean create;
+
+    ChooseQuizScreenControl(boolean create) {
+		this.create = create;
+	}
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        // restore the width and height
+        window.getWindow().setHeight(window.getWindow().getHeight());
+        window.getWindow().setWidth(window.getWindow().getWidth());
+    	// make the newQuizButton visible and attach a click event listener on it only
+		// if the user wants to create/edit a quiz
+    	if (create) {
+    		newQuizButton.setVisible(true);
+    		newQuizButton.setDisable(false);
+    		newQuizButton.setOnMouseClicked(e -> window.openView(new QuizEditorControl(null))); // create new quiz
+
+			header.setText("Create/edit quiz");
+
+			startButton.setText("EDIT");
+		} else if (window.getApp().quizList.isEmpty()) {
+    		openNoQuizPopup();
+		}
+
         backButton.setOnMouseClicked(e -> window.openView(new HomeScreenControl()));
-        startButton.setOnMouseClicked(e -> window.openView(new QuizControl(selected)));
+        startButton.setOnMouseClicked(e -> {
+        	if (create) {
+        		window.openView(new QuizEditorControl(selected));
+			} else {
+				window.openView(new QuizControl(selected));
+			}
+        });
         openFolderButton.setOnMouseClicked(e -> {
 	        try {
 		        Desktop.getDesktop().open(window.getApp().getStorageDir());
@@ -77,4 +110,24 @@ public class ChooseQuizScreenControl extends ViewAdapter {
 	    	quizDetails.setVisible(true);
 	    }
     }
+
+	/**
+	 * Open the popup stating the user does not have a quiz installed
+	 */
+	private void openNoQuizPopup() {
+		Stage stage = new Stage();
+		stage.initModality(Modality.APPLICATION_MODAL);
+		stage.setResizable(false);
+
+		Window win = new Window(window.getApp(), stage, "No quiz installed");
+		win.openView(new NoQuizInstalledPopupControl());
+
+		// go back when the quizlist is empty when the popup closes
+		stage.onHiddenProperty().setValue(e -> {
+			if (window.getApp().quizList.isEmpty()) {
+				window.openView(new HomeScreenControl());
+			}
+		});
+	}
+
 }
