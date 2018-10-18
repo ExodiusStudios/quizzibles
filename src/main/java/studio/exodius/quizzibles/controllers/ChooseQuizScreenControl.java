@@ -56,7 +56,8 @@ public class ChooseQuizScreenControl extends ViewAdapter {
 		// if the user wants to create/edit a quiz
     	if (create) {
     		newQuizButton.setVisible(true);
-    		newQuizButton.setOnMouseClicked(e -> System.out.println("TBD"));
+    		newQuizButton.setDisable(false);
+    		newQuizButton.setOnMouseClicked(e -> window.openView(new QuizEditorControl(null))); // create new quiz
 
 			header.setText("Create/edit quiz");
 
@@ -68,8 +69,7 @@ public class ChooseQuizScreenControl extends ViewAdapter {
         backButton.setOnMouseClicked(e -> window.openView(new HomeScreenControl()));
         startButton.setOnMouseClicked(e -> {
         	if (create) {
-        		// TODO open quiz editor with selected quiz
-				System.out.println("TBD");
+        		window.openView(new QuizEditorControl(selected));
 			} else {
 				window.openView(new QuizControl(selected));
 			}
