@@ -12,9 +12,9 @@
    <children>
       <VBox alignment="CENTER" style="-fx-background-color: #ffff;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Label text="Play quiz" textFill="#515151">
+            <Label styleClass="title" text="PLAY QUIZ" textFill="#6b90b2">
                <font>
-                  <Font size="48.0" />
+                  <Font name="Raleway" size="48.0" />
                </font>
                <padding>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />

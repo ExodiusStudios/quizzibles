@@ -14,6 +14,8 @@ import java.net.URL;
  */
 public class Window {
 
+	private static String STYLESHEET = Loader.url("stylesheet.css").toExternalForm();
+
 	private Quizzibles quiz;
 
 	private Stage window;
@@ -43,6 +45,8 @@ public class Window {
 
 		Parent view = Loader.scene(uri, controller);
 		Scene scene = new Scene(view);
+
+		scene.getStylesheets().add(STYLESHEET);
 
 		window.setScene(scene);
 

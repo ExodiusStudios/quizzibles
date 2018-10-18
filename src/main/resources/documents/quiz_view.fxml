@@ -13,11 +13,11 @@
 <children>
       <VBox prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0">
          <children>
-            <VBox prefHeight="170.0" prefWidth="600.0" style="-fx-background-color: #fff;">
+            <VBox prefHeight="286.0" prefWidth="600.0" style="-fx-background-color: #fff;">
                <children>
-                  <Label fx:id="question" alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" prefHeight="73.0" prefWidth="600.0" text="&lt; QUESTION PLACEHOLDER &gt;" textAlignment="CENTER" textFill="#515151" textOverrun="WORD_ELLIPSIS" wrapText="true">
+                  <Label fx:id="question" alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" prefHeight="82.0" prefWidth="600.0" styleClass="title" text="This is the question" textAlignment="CENTER" textFill="#3c3c3c" textOverrun="WORD_ELLIPSIS" wrapText="true">
                      <font>
-                        <Font size="23.0" />
+                        <Font size="27.0" />
                      </font>
                   </Label>
                   <HBox alignment="CENTER" prefWidth="200.0">
@@ -36,7 +36,7 @@
                   </HBox>
                </children>
             </VBox>
-         <VBox alignment="TOP_CENTER" prefHeight="343.0" prefWidth="660.0" style="-fx-background-color: #eee;">
+         <VBox alignment="TOP_CENTER" prefHeight="438.0" prefWidth="600.0" style="-fx-background-color: #eee;">
                <children>
                   <ProgressBar fx:id="progress" prefHeight="11.0" prefWidth="600.0" />
                   <TilePane fx:id="optionArea" alignment="TOP_CENTER" maxWidth="-Infinity" prefHeight="209.0" prefTileHeight="40.0" prefTileWidth="200.0" prefWidth="406.0">
