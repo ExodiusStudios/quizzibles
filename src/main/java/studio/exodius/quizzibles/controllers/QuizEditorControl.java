@@ -33,7 +33,5 @@ public class QuizEditorControl extends ViewAdapter {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        questionScrollPane.setFitToHeight(true);
-        questionScrollPane.setFitToWidth(true);
     }
 }
