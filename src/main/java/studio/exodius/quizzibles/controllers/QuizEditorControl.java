@@ -1,10 +1,12 @@
 package studio.exodius.quizzibles.controllers;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.ListView;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.layout.AnchorPane;
+import javafx.scene.control.*;
+import javafx.scene.layout.TilePane;
 import studio.exodius.quizzibles.ViewAdapter;
+import studio.exodius.quizzibles.controllers.quiz.WipQuestion;
+import studio.exodius.quizzibles.controllers.quiz.WipQuiz;
+import studio.exodius.quizzibles.model.Option;
 import studio.exodius.quizzibles.model.Quiz;
 import studio.exodius.quizzibles.utility.Document;
 
@@ -22,13 +24,34 @@ import java.util.ResourceBundle;
 public class QuizEditorControl extends ViewAdapter {
 
     @FXML private ListView<String> questionsList;
-    @FXML private ScrollPane questionScrollPane;
-    @FXML private AnchorPane questionAnchorPane;
+    @FXML private TextField questionTextField;
+    @FXML private TextField durationTextField;
+    @FXML private TilePane questionsTilePane;
+    @FXML private ComboBox<String> rightAnswerComboBox;
+    @FXML private Button newQuestionButton;
+    @FXML private Button newAnswerButton;
+    @FXML private Button quizOptionsButton;
+    @FXML private Menu FileMenu;
 
-    private Quiz quiz;
+    private WipQuiz quiz;
 
     QuizEditorControl(Quiz quiz) {
-        this.quiz = quiz;
+        if (quiz == null) {
+            this.quiz = new WipQuiz();
+
+            WipQuestion question = new WipQuestion("");
+            Option optionA = new Option();
+            Option optionB = new Option();
+
+            optionA.title = "True";
+            optionB.title = "False";
+
+            question.optionsList.add(optionA);
+            question.optionsList.add(optionB);
+
+        } else {
+
+        }
     }
 
     @Override

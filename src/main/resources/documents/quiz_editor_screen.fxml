@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
@@ -19,7 +20,7 @@
           </Menu>
         </menus>
       </MenuBar>
-      <ScrollPane fx:id="questionScrollPane" layoutY="25.0" fitToHeight="true" fitToWidth="true" prefWidth="210.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="25.0">
+      <ScrollPane fx:id="questionScrollPane" fitToHeight="true" fitToWidth="true" layoutY="25.0" prefWidth="210.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="25.0">
          <content>
             <AnchorPane fx:id="questionAnchorPane" prefHeight="${questionScrollPane.height}" prefWidth="${questionScrollPane.width}">
                <children>
@@ -30,9 +31,51 @@
       </ScrollPane>
       <ToolBar layoutX="200.0" layoutY="25.0" prefHeight="40.0" prefWidth="200.0" AnchorPane.leftAnchor="210.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0">
         <items>
-          <Button mnemonicParsing="false" text="New question" />
-            <Button mnemonicParsing="false" text="New answer" />
+          <Button fx:id="newQuestionButton" mnemonicParsing="false" text="New question" />
+            <Button fx:id="newAnswerButton" mnemonicParsing="false" text="New answer" />
+            <Button fx:id="quizOptionsButton" mnemonicParsing="false" text="Quiz options" />
         </items>
       </ToolBar>
+      <AnchorPane layoutX="210.0" layoutY="65.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="210.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="65.0">
+         <children>
+            <HBox alignment="CENTER" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <Label text="Question:">
+                     <VBox.margin>
+                        <Insets bottom="10.0" right="5.0" top="10.0" />
+                     </VBox.margin>
+                     <HBox.margin>
+                        <Insets right="5.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="questionTextField">
+                     <HBox.margin>
+                        <Insets bottom="5.0" top="5.0" />
+                     </HBox.margin></TextField>
+               </children>
+            </HBox>
+            <TilePane fx:id="questionsTilePane" alignment="CENTER" layoutX="2.0" layoutY="229.0" AnchorPane.bottomAnchor="35.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="37.0" />
+            <HBox alignment="CENTER_LEFT" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+               <children>
+                  <Label text="Duration:">
+                     <HBox.margin>
+                        <Insets left="5.0" right="5.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="durationTextField" prefWidth="100.0" text="10">
+                     <HBox.margin>
+                        <Insets bottom="5.0" right="20.0" top="5.0" />
+                     </HBox.margin>
+                  </TextField>
+                  <Label text="Right answer:">
+                     <HBox.margin>
+                        <Insets right="5.0" />
+                     </HBox.margin>
+                  </Label>
+                  <ComboBox fx:id="rightAnswerComboBox" prefWidth="100.0" />
+               </children>
+            </HBox>
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>
