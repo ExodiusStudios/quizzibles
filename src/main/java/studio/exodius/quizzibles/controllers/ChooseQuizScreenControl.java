@@ -112,8 +112,8 @@ public class ChooseQuizScreenControl extends ViewAdapter {
 
 	    // Update details pane
 		quizName.setText(quiz.name);
-		quizVersion.setText("Versie: " + quiz.version);
-		quizAuthor.setText("Autheur: " + quiz.author);
+		quizVersion.setText("Version: " + quiz.version);
+		quizAuthor.setText("Author: " + quiz.author);
 		quizHighscore.setText("Highscore: " + 0);
 
 	    // Reveal details pane
