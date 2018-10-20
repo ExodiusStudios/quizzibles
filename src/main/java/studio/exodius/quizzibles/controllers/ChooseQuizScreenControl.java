@@ -3,6 +3,7 @@ package studio.exodius.quizzibles.controllers;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -30,7 +31,7 @@ public class ChooseQuizScreenControl extends ViewAdapter {
     @FXML private Button openFolderButton;
     @FXML private Button startButton;
     @FXML private Button newQuizButton;
-    @FXML private VBox quizList;
+    @FXML private ListView<String> quizList;
     @FXML private VBox quizDetails;
     @FXML private Label quizName;
     @FXML private Label quizAuthor;
@@ -49,12 +50,15 @@ public class ChooseQuizScreenControl extends ViewAdapter {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
         // restore the width and height
         window.getWindow().setHeight(window.getWindow().getHeight());
         window.getWindow().setWidth(window.getWindow().getWidth());
+
     	// make the newQuizButton visible and attach a click event listener on it only
 		// if the user wants to create/edit a quiz
     	if (create) {
+
     		newQuizButton.setVisible(true);
     		newQuizButton.setDisable(false);
     		newQuizButton.setOnMouseClicked(e -> window.openView(new QuizEditorControl(null))); // create new quiz
@@ -62,6 +66,7 @@ public class ChooseQuizScreenControl extends ViewAdapter {
 			header.setText("Create/edit quiz");
 
 			startButton.setText("EDIT");
+
 		} else if (window.getApp().quizList.isEmpty()) {
     		openNoQuizPopup();
 		}
@@ -84,11 +89,17 @@ public class ChooseQuizScreenControl extends ViewAdapter {
 
         // Add all quizzes to the list
         for(Quiz quiz : window.getApp().quizList) {
-        	Button button = new Button(quiz.name);
-        	quizList.getChildren().add(button);
-
-        	button.setOnMouseClicked(e -> selectQuiz(quiz));
+        	quizList.getItems().add(quiz.name);
         }
+
+        quizList.setOnMouseClicked(e -> {
+            // Get the selected quiz
+        	for (Quiz quiz : window.getApp().quizList) {
+        		if (quizList.getSelectionModel().getSelectedItem().equalsIgnoreCase(quiz.name)) {
+        			selectQuiz(quiz);
+				}
+			}
+		});
     }
 
 	/**

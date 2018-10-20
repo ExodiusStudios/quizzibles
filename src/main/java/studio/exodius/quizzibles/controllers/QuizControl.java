@@ -76,11 +76,11 @@ public class QuizControl extends ViewAdapter {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		this.question.setText(quiz.questions[currQuestion].title);
-		this.number.setText("Vraag " + (currQuestion + 1) + "/" + (quiz.questions.length));
+		this.question.setText(quiz.questions.get(currQuestion).title);
+		this.number.setText("Vraag " + (currQuestion + 1) + "/" + (quiz.questions.size()));
 		this.score.setText("0 Punten");
 
-		for(Option option : quiz.questions[currQuestion].options) {
+		for(Option option : quiz.questions.get(currQuestion).options) {
 			Button button = new Button(option.title);
 			this.optionArea.getChildren().add(button);
 		}
