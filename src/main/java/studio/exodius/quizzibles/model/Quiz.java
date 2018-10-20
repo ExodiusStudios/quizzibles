@@ -1,5 +1,7 @@
 package studio.exodius.quizzibles.model;
 
+import java.util.ArrayList;
+
 /**
  * Represents a quiz model
  *
@@ -21,5 +23,5 @@ public class Quiz {
 	public long answerDuration = 10000;
 
 	/** The questions for this quiz */
-	public Question[] questions = new Question[0];
+	public ArrayList<Question> questions = new ArrayList<>();
 }

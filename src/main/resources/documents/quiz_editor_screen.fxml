@@ -11,7 +11,7 @@
    <children>
       <MenuBar layoutY="2.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <menus>
-          <Menu mnemonicParsing="false" text="File">
+          <Menu fx:id="FileMenu" mnemonicParsing="false" text="File">
             <items>
                   <MenuItem mnemonicParsing="false" text="Save" />
                   <MenuItem mnemonicParsing="false" text="Save as..." />
@@ -38,23 +38,9 @@
       </ToolBar>
       <AnchorPane layoutX="210.0" layoutY="65.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="210.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="65.0">
          <children>
-            <HBox alignment="CENTER" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-               <children>
-                  <Label text="Question:">
-                     <VBox.margin>
-                        <Insets bottom="10.0" right="5.0" top="10.0" />
-                     </VBox.margin>
-                     <HBox.margin>
-                        <Insets right="5.0" />
-                     </HBox.margin>
-                  </Label>
-                  <TextField fx:id="questionTextField">
-                     <HBox.margin>
-                        <Insets bottom="5.0" top="5.0" />
-                     </HBox.margin></TextField>
-               </children>
-            </HBox>
-            <TilePane fx:id="questionsTilePane" alignment="CENTER" layoutX="2.0" layoutY="229.0" AnchorPane.bottomAnchor="35.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="37.0" />
+            <Label text="Question:" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="8.0" />
+            <TextField fx:id="questionTextField" AnchorPane.leftAnchor="62.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0" />
+            <TilePane fx:id="questionsTilePane" alignment="CENTER" layoutX="2.0" layoutY="229.0" orientation="VERTICAL" AnchorPane.bottomAnchor="35.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="37.0" />
             <HBox alignment="CENTER_LEFT" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                <children>
                   <Label text="Duration:">

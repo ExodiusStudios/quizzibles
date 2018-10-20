@@ -1,5 +1,7 @@
 package studio.exodius.quizzibles.model;
 
+import java.util.ArrayList;
+
 /**
  * @author Macjuul
  * @version 1.0.0
@@ -13,6 +15,12 @@ public class Question {
 	public int answer;
 
 	/** An array of possible options **/
-	public Option[] options = new Option[0];
+	public ArrayList<Option> options = new ArrayList<>();
+
+	public Question() {}
+
+	public Question(String title) {
+		this.title = title;
+	}
 
 }
