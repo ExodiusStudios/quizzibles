@@ -57,6 +57,9 @@ public class Quizzibles extends Application {
 	@Override
 	public void stop() {
 		this.running = false;
+
+		// Make sure the application exists gracefully
+		System.exit(0);
 	}
 
 	/**

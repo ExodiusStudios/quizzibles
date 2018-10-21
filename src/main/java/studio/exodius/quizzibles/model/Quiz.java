@@ -24,4 +24,13 @@ public class Quiz {
 
 	/** The questions for this quiz */
 	public ArrayList<Question> questions = new ArrayList<>();
+
+	@Override
+	public Quiz clone() {
+		try {
+			return (Quiz) super.clone();
+		} catch(CloneNotSupportedException e) {
+			throw new RuntimeException("Failed to clone quiz");
+		}
+	}
 }
