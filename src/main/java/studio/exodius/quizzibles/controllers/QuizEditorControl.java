@@ -302,7 +302,7 @@ public class QuizEditorControl extends ViewAdapter {
             System.out.println(dialog.isCanceled());
             if (!dialog.isCanceled()) {
                 quiz.name = dialog.getFileName();
-                InitSave();
+                save();
             }
         });
     }
