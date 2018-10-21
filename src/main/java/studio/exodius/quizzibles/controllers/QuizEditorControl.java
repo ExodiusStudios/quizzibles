@@ -5,6 +5,7 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.control.*;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.TilePane;
 import javafx.stage.Stage;
@@ -31,7 +32,7 @@ public class QuizEditorControl extends ViewAdapter {
 
     @FXML private ListView<String> questionsList;
     @FXML private TextField questionTextField;
-    @FXML private TextField durationTextField;
+    @FXML private TextField maxPointsTextInput;
     @FXML private TilePane questionsTilePane;
     @FXML private ComboBox<String> rightAnswerComboBox;
     @FXML private Button newQuestionButton;
@@ -44,7 +45,8 @@ public class QuizEditorControl extends ViewAdapter {
 
     private int currentQuestionIndex = 0;
     private Question currentQuestion;
-    private boolean saved = false;
+    private boolean saved = true;
+    private boolean closeApp = false;
 
     QuizEditorControl(Quiz quiz) {
         if (quiz == null) {
@@ -74,17 +76,23 @@ public class QuizEditorControl extends ViewAdapter {
         questionTextField.setOnKeyReleased(e -> {
             questionsList.getItems().set(currentQuestionIndex, questionTextField.getText());
             quiz.questions.get(currentQuestionIndex).title = questionTextField.getText();
+
+            saved = false;
         });
 
         newAnswerButton.setOnMouseClicked(e -> {
             quiz.questions.get(currentQuestionIndex).options.add(new Option(""));
             addAnswer(questionsTilePane.getChildren().size());
+
+            saved = false;
         });
 
         rightAnswerComboBox.setOnAction(e -> {
             if (rightAnswerComboBox.getItems().size() > 0) {
                 currentQuestion.answer = rightAnswerComboBox.getSelectionModel().getSelectedIndex();
             }
+
+            saved = false;
         });
 
         questionsList.setOnMouseClicked(e -> {
@@ -95,6 +103,7 @@ public class QuizEditorControl extends ViewAdapter {
             }
 
             populateView();
+            saved = false;
         });
 
         newQuestionButton.setOnAction(e -> {
@@ -102,9 +111,53 @@ public class QuizEditorControl extends ViewAdapter {
             questionsList.getItems().add("");
             currentQuestion = this.quiz.questions.get(currentQuestionIndex);
             populateView();
+            saved = false;
         });
 
         deleteQuestionButton.setOnAction(e -> removeQuestion());
+
+        quizOptionsButton.setOnAction(e -> {
+            Stage stage = new Stage();
+
+            Window win = new Window(window.getApp(), stage, "Settings for '" + quiz.name + "'");
+
+            win.openView(new QuizSettingsPopupControl(quiz));
+
+            saved = false;
+        });
+
+        maxPointsTextInput.addEventFilter(KeyEvent.KEY_TYPED, e -> {
+            if (e.getCharacter().matches("[\\D]")) {
+                e.consume();
+            }
+        });
+
+        maxPointsTextInput.setOnKeyReleased(e -> {
+            if (!maxPointsTextInput.getText().isEmpty()) {
+                currentQuestion.maxReward = Integer.parseInt(maxPointsTextInput.getText());
+            } else {
+                currentQuestion.maxReward = 50; // TODO un hardcode this
+            }
+
+            saved = false;
+        });
+
+        FileMenu.getItems().get(2).setOnAction(e -> {
+            if (!saved) {
+                askForSave();
+                closeApp = false;
+            } else {
+                window.openView(new ChooseQuizScreenControl(true));
+            }
+        });
+
+        window.getStage().setOnCloseRequest(e -> {
+            if (!saved) {
+                e.consume();
+                askForSave();
+                closeApp = true;
+            }
+        });
     }
 
     /**
@@ -125,6 +178,8 @@ public class QuizEditorControl extends ViewAdapter {
         Question currQuestion = quiz.questions.get(currentQuestionIndex);
         questionTextField.setText(currQuestion.title);
         questionTextField.positionCaret(currQuestion.title.length());
+
+        maxPointsTextInput.setText(Integer.toString(currQuestion.maxReward));
 
         // add the options
         for (int i = 0; i < currQuestion.options.size(); i++) {
@@ -222,5 +277,39 @@ public class QuizEditorControl extends ViewAdapter {
                 populateView();
             }
         });
+    }
+
+    private void openSaveDialog() {
+        System.out.println("TBD");
+    }
+
+    private void askForSave() {
+        Stage stage = new Stage();
+        NotSavedPopup popup = new NotSavedPopup(quiz);
+
+        Window win = new Window(window.getApp(), stage, "quiz not ot saved");
+        win.openView(popup);
+
+        win.getStage().setOnHiding(evt -> {
+            evt.consume();
+            // user doesn't want to save
+            System.out.println("canceled: " + popup.isCanceled());
+            System.out.println("save: " + popup.isSaveConfirmed());
+
+            if (!popup.isCanceled() && !popup.isSaveConfirmed()) {
+                // don't save
+                if (closeApp) {
+                    window.close();
+                } else {
+                    window.openView(new ChooseQuizScreenControl(true));
+                }
+            } else if (!popup.isCanceled() && popup.isSaveConfirmed()) {
+                openSaveDialog();
+            }
+        });
+    }
+
+    private void save() {
+
     }
 }

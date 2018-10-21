@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane prefHeight="80.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label fx:id="messageLabel" text="Quiz '' is not saved." AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0" />
+      <HBox AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="20.0">
+         <children>
+            <Button fx:id="cancelButton" mnemonicParsing="false" text="Cancel">
+               <HBox.margin>
+                  <Insets right="5.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="dontSaveButton" mnemonicParsing="false" text="Don't save">
+               <HBox.margin>
+                  <Insets left="5.0" right="5.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="saveButton" defaultButton="true" mnemonicParsing="false" text="Save">
+               <HBox.margin>
+                  <Insets left="5.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

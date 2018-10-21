@@ -48,12 +48,12 @@
             <TilePane fx:id="questionsTilePane" alignment="CENTER" layoutX="2.0" layoutY="229.0" orientation="VERTICAL" AnchorPane.bottomAnchor="35.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="37.0" />
             <HBox alignment="CENTER_LEFT" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                <children>
-                  <Label text="Duration:">
+                  <Label text="Max points:">
                      <HBox.margin>
                         <Insets left="5.0" right="5.0" />
                      </HBox.margin>
                   </Label>
-                  <TextField fx:id="durationTextField" prefWidth="100.0">
+                  <TextField fx:id="maxPointsTextInput" prefWidth="100.0">
                      <HBox.margin>
                         <Insets bottom="5.0" right="20.0" top="5.0" />
                      </HBox.margin>
