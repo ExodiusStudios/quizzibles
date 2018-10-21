@@ -1,6 +1,7 @@
 package studio.exodius.quizzibles.model;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 /**
  * @author Macjuul
@@ -14,6 +15,9 @@ public class Question {
 	/** The index of the correct option **/
 	public int answer;
 
+	/** The reward for answering a correct question **/
+	public int maxReward = 50;
+
 	/** An array of possible options **/
 	public ArrayList<Option> options = new ArrayList<>();
 
@@ -23,4 +27,18 @@ public class Question {
 		this.title = title;
 	}
 
+	@Override
+	public boolean equals(Object o) {
+		if(this == o) return true;
+		if(o == null || getClass() != o.getClass()) return false;
+		Question question = (Question) o;
+		return answer == question.answer &&
+			Objects.equals(title, question.title) &&
+			Objects.equals(options, question.options);
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(title, answer, options);
+	}
 }

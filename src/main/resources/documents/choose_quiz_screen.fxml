@@ -53,11 +53,6 @@
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <Label fx:id="quizHighscore" text="&lt;score&gt;" textFill="#565656">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                  </Label>
                   <Button fx:id="startButton" alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="30.0" prefWidth="174.0" text="START">
                      <opaqueInsets>
                         <Insets />

@@ -15,6 +15,7 @@ import studio.exodius.quizzibles.utility.Document;
 import java.awt.*;
 import java.io.IOException;
 import java.net.URL;
+import java.util.Collections;
 import java.util.ResourceBundle;
 
 /**
@@ -36,7 +37,6 @@ public class ChooseQuizScreenControl extends ViewAdapter {
     @FXML private Label quizName;
     @FXML private Label quizAuthor;
     @FXML private Label quizVersion;
-    @FXML private Label quizHighscore;
     @FXML private Label header;
 
     /** The currently selected quizz */
@@ -63,9 +63,9 @@ public class ChooseQuizScreenControl extends ViewAdapter {
     		newQuizButton.setDisable(false);
     		newQuizButton.setOnMouseClicked(e -> window.openView(new QuizEditorControl(null))); // create new quiz
 
-			header.setText("Create/edit quiz");
+			header.setText("Quiz selection");
 
-			startButton.setText("EDIT");
+			startButton.setText("Edit");
 
 		} else if (window.getApp().quizList.isEmpty()) {
     		openNoQuizPopup();
@@ -76,6 +76,7 @@ public class ChooseQuizScreenControl extends ViewAdapter {
         	if (create) {
         		window.openView(new QuizEditorControl(selected));
 			} else {
+		        Collections.shuffle(selected.questions);
 				window.openView(new QuizControl(selected));
 			}
         });
@@ -111,9 +112,8 @@ public class ChooseQuizScreenControl extends ViewAdapter {
 
 	    // Update details pane
 		quizName.setText(quiz.name);
-		quizVersion.setText("Version: " + quiz.version);
-		quizAuthor.setText("Author: " + quiz.author);
-		quizHighscore.setText("Highscore: " + 0);
+		quizVersion.setText("Versie: " + quiz.version);
+		quizAuthor.setText("Auteur: " + quiz.author);
 
 	    // Reveal details pane
 	    if(!quizDetails.isVisible()) {
