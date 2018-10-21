@@ -1,5 +1,7 @@
 package studio.exodius.quizzibles.controllers;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -16,6 +18,9 @@ import studio.exodius.quizzibles.model.Question;
 import studio.exodius.quizzibles.model.Quiz;
 import studio.exodius.quizzibles.utility.Document;
 
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.Writer;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -46,6 +51,7 @@ public class QuizEditorControl extends ViewAdapter {
     private int currentQuestionIndex = 0;
     private Question currentQuestion;
     private boolean saved = true;
+    private boolean fileExists = false;
     private boolean closeApp = false;
 
     QuizEditorControl(Quiz quiz) {
@@ -59,6 +65,7 @@ public class QuizEditorControl extends ViewAdapter {
         } else {
             this.quiz = quiz;
             saved = true;
+            fileExists = true;
         }
 
         currentQuestion = this.quiz.questions.get(currentQuestionIndex);
@@ -149,6 +156,12 @@ public class QuizEditorControl extends ViewAdapter {
             } else {
                 window.openView(new ChooseQuizScreenControl(true));
             }
+        });
+
+        FileMenu.getItems().get(0).setOnAction(e -> InitSave());
+
+        FileMenu.getItems().get(1).setOnAction(e -> {
+            openSaveDialog();
         });
 
         window.getStage().setOnCloseRequest(e -> {
@@ -280,7 +293,18 @@ public class QuizEditorControl extends ViewAdapter {
     }
 
     private void openSaveDialog() {
-        System.out.println("TBD");
+        Stage stage = new Stage();
+        Window win = new Window(window.getApp(), stage, "Save quiz as...");
+        QuizSaveAsDialog dialog = new QuizSaveAsDialog(quiz);
+        win.openView(dialog);
+
+        win.getStage().setOnHiding(e -> {
+            System.out.println(dialog.isCanceled());
+            if (!dialog.isCanceled()) {
+                quiz.name = dialog.getFileName();
+                InitSave();
+            }
+        });
     }
 
     private void askForSave() {
@@ -292,12 +316,12 @@ public class QuizEditorControl extends ViewAdapter {
 
         win.getStage().setOnHiding(evt -> {
             evt.consume();
-            // user doesn't want to save
+            // user doesn't want to InitSave
             System.out.println("canceled: " + popup.isCanceled());
-            System.out.println("save: " + popup.isSaveConfirmed());
+            System.out.println("InitSave: " + popup.isSaveConfirmed());
 
             if (!popup.isCanceled() && !popup.isSaveConfirmed()) {
-                // don't save
+                // don't InitSave
                 if (closeApp) {
                     window.close();
                 } else {
@@ -309,7 +333,21 @@ public class QuizEditorControl extends ViewAdapter {
         });
     }
 
-    private void save() {
+    private void InitSave() {
+        if (!fileExists) {
+            openSaveDialog();
+        } else {
+            save();
+        }
+    }
 
+    private void save() {
+        try (Writer writer = new FileWriter(quiz.name + ".quiz")) {
+            Gson gson = new GsonBuilder().create();
+            gson.toJson(quiz, writer);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        fileExists = true;
     }
 }
