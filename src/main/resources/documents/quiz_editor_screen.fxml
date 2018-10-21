@@ -32,6 +32,7 @@
       <ToolBar layoutX="200.0" layoutY="25.0" prefHeight="40.0" prefWidth="200.0" AnchorPane.leftAnchor="210.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0">
         <items>
           <Button fx:id="newQuestionButton" mnemonicParsing="false" text="New question" />
+            <Button fx:id="deleteQuestionButton" mnemonicParsing="false" text="Delete question" />
             <Button fx:id="newAnswerButton" mnemonicParsing="false" text="New answer" />
             <Button fx:id="quizOptionsButton" mnemonicParsing="false" text="Quiz options" />
         </items>
@@ -52,7 +53,7 @@
                         <Insets left="5.0" right="5.0" />
                      </HBox.margin>
                   </Label>
-                  <TextField fx:id="durationTextField" prefWidth="100.0" text="10">
+                  <TextField fx:id="durationTextField" prefWidth="100.0">
                      <HBox.margin>
                         <Insets bottom="5.0" right="20.0" top="5.0" />
                      </HBox.margin>

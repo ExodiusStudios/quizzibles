@@ -73,7 +73,7 @@ public class Window {
 		this.window.close();
 	}
 
-	public Stage getWindow() {
+	public Stage getStage() {
 		return this.window;
 	}
 }

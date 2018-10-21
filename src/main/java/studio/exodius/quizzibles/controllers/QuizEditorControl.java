@@ -7,7 +7,9 @@ import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.TilePane;
+import javafx.stage.Stage;
 import studio.exodius.quizzibles.ViewAdapter;
+import studio.exodius.quizzibles.Window;
 import studio.exodius.quizzibles.model.Option;
 import studio.exodius.quizzibles.model.Question;
 import studio.exodius.quizzibles.model.Quiz;
@@ -35,6 +37,7 @@ public class QuizEditorControl extends ViewAdapter {
     @FXML private Button newQuestionButton;
     @FXML private Button newAnswerButton;
     @FXML private Button quizOptionsButton;
+    @FXML private Button deleteQuestionButton;
     @FXML private Menu FileMenu;
 
     private Quiz quiz;
@@ -49,15 +52,7 @@ public class QuizEditorControl extends ViewAdapter {
             // create new quiz with a empty question and two empty answers
             this.quiz = new Quiz();
 
-            Question question = new Question("");
-            Option answerA = new Option("");
-            Option answerB = new Option("");
-
-            question.options.add(answerA);
-            question.options.add(answerB);
-
-            this.quiz.questions.add(question);
-            this.quiz.questions.get(currentQuestionIndex).answer = 0;
+            newQuestion();
 
         } else {
             this.quiz = quiz;
@@ -78,6 +73,7 @@ public class QuizEditorControl extends ViewAdapter {
 
         questionTextField.setOnKeyReleased(e -> {
             questionsList.getItems().set(currentQuestionIndex, questionTextField.getText());
+            quiz.questions.get(currentQuestionIndex).title = questionTextField.getText();
         });
 
         newAnswerButton.setOnMouseClicked(e -> {
@@ -86,17 +82,29 @@ public class QuizEditorControl extends ViewAdapter {
         });
 
         rightAnswerComboBox.setOnAction(e -> {
-            currentQuestion.answer = rightAnswerComboBox.getSelectionModel().getSelectedIndex();
+            if (rightAnswerComboBox.getItems().size() > 0) {
+                currentQuestion.answer = rightAnswerComboBox.getSelectionModel().getSelectedIndex();
+            }
         });
 
         questionsList.setOnMouseClicked(e -> {
             int selectedIndex = questionsList.getSelectionModel().getSelectedIndex();
-            if (selectedIndex < quiz.questions.size()) {
+            if (selectedIndex < quiz.questions.size() && selectedIndex >= 0) {
                 currentQuestionIndex = selectedIndex;
+                currentQuestion = quiz.questions.get(selectedIndex);
             }
 
             populateView();
         });
+
+        newQuestionButton.setOnAction(e -> {
+            newQuestion();
+            questionsList.getItems().add("");
+            currentQuestion = this.quiz.questions.get(currentQuestionIndex);
+            populateView();
+        });
+
+        deleteQuestionButton.setOnAction(e -> removeQuestion());
     }
 
     /**
@@ -111,12 +119,9 @@ public class QuizEditorControl extends ViewAdapter {
         }
 
         // clear the answer combobox
-        ArrayList<String> strings = new ArrayList<>(rightAnswerComboBox.getItems());
-        for (String string : strings) {
-            rightAnswerComboBox.getItems().remove(string);
-        }
-
+        rightAnswerComboBox.getItems().clear();
         // put the current question in the input field
+        System.out.println(quiz.questions.size());
         Question currQuestion = quiz.questions.get(currentQuestionIndex);
         questionTextField.setText(currQuestion.title);
         questionTextField.positionCaret(currQuestion.title.length());
@@ -125,10 +130,25 @@ public class QuizEditorControl extends ViewAdapter {
         for (int i = 0; i < currQuestion.options.size(); i++) {
            addAnswer(i);
         }
-
-        questionsList.getSelectionModel().select(currentQuestionIndex);
         rightAnswerComboBox.getSelectionModel().select(currentQuestion.answer);
 
+    }
+
+    private void newQuestion() {
+        Question question = new Question("");
+        Option answerA = new Option("");
+        Option answerB = new Option("");
+
+        question.options.add(answerA);
+        question.options.add(answerB);
+        question.answer = 0;
+
+        this.quiz.questions.add(question);
+
+        currentQuestionIndex = this.quiz.questions.size() - 1;
+        System.out.println(this.quiz.questions.size());
+        System.out.println("answer new question: " + quiz.questions.get(currentQuestionIndex).answer);
+        System.out.println("currentQuestionIndex: " + currentQuestionIndex);
     }
 
     /**
@@ -137,14 +157,14 @@ public class QuizEditorControl extends ViewAdapter {
      */
     private void addAnswer(int index) {
 
-        ArrayList<Option> options = quiz.questions.get(currentQuestionIndex).options;
+        ArrayList<Option> options = currentQuestion.options;
 
         HBox hBox = new HBox();
         Button delButton = new Button("X");
         TextField textField = new TextField(options.get(index).title);
 
         rightAnswerComboBox.getItems().add(options.get(index).title);
-        rightAnswerComboBox.getSelectionModel().select(quiz.questions.get(currentQuestionIndex).answer);
+        //rightAnswerComboBox.getSelectionModel().select(currentQuestion.answer);
 
         delButton.setOnMouseClicked(e -> {
             if (questionsTilePane.getChildren().size() > 2) {
@@ -174,5 +194,33 @@ public class QuizEditorControl extends ViewAdapter {
         quiz.questions.get(currentQuestionIndex).options.remove(index);
         rightAnswerComboBox.getItems().remove(index);
         rightAnswerComboBox.getSelectionModel().select(0); // select the first answer.
+    }
+
+    private void removeQuestion() {
+        // open confirmBox
+        Stage stage = new Stage();
+
+        ConfirmPopup popup = new ConfirmPopup("Are you sure you want to delete '" + currentQuestion.title + "'?");
+
+        Window win = new Window(window.getApp(), stage, "Delete " + currentQuestion.title);
+        win.openView(popup);
+
+        win.getStage().setOnHiding(e -> {
+            if (popup.isConfirmed()) {
+                quiz.questions.remove(currentQuestion);
+                questionsList.getItems().remove(currentQuestion.title);
+
+                if (questionsList.getItems().size() > 0) {
+                    currentQuestionIndex = 0;
+                    currentQuestion = quiz.questions.get(0);
+                } else {
+                    newQuestion();
+                    System.out.println(quiz.questions.size());
+                }
+
+                questionsList.getItems().add("");
+                populateView();
+            }
+        });
     }
 }
