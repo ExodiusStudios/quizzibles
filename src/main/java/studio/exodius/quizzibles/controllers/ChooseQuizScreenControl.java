@@ -52,8 +52,8 @@ public class ChooseQuizScreenControl extends ViewAdapter {
     public void initialize(URL location, ResourceBundle resources) {
 
         // restore the width and height
-        window.getWindow().setHeight(window.getWindow().getHeight());
-        window.getWindow().setWidth(window.getWindow().getWidth());
+        window.getStage().setHeight(window.getStage().getHeight());
+        window.getStage().setWidth(window.getStage().getWidth());
 
     	// make the newQuizButton visible and attach a click event listener on it only
 		// if the user wants to create/edit a quiz
@@ -95,11 +95,10 @@ public class ChooseQuizScreenControl extends ViewAdapter {
 
         quizList.setOnMouseClicked(e -> {
             // Get the selected quiz
-        	for (Quiz quiz : window.getApp().quizList) {
-        		if (quizList.getSelectionModel().getSelectedItem().equalsIgnoreCase(quiz.name)) {
-        			selectQuiz(quiz);
-				}
-			}
+            int index = quizList.getSelectionModel().getSelectedIndex();
+            if (index >= 0) {
+                selectQuiz(window.getApp().quizList.get(index));
+            }
 		});
     }
 
