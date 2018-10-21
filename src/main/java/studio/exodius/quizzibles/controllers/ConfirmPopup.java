@@ -3,6 +3,7 @@ package studio.exodius.quizzibles.controllers;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.stage.Modality;
 import studio.exodius.quizzibles.ViewAdapter;
 import studio.exodius.quizzibles.utility.Document;
 
@@ -23,7 +24,7 @@ public class ConfirmPopup extends ViewAdapter {
     @FXML private Button cancelButton;
     @FXML private Button okButton;
 
-    private boolean confirmed;
+    private boolean confirmed = false;
     private String text;
 
     ConfirmPopup(String text) {
@@ -32,7 +33,16 @@ public class ConfirmPopup extends ViewAdapter {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        window.getStage().initModality(Modality.APPLICATION_MODAL);
+        window.getStage().setResizable(false);
 
+        textLabel.setText(text);
+
+        cancelButton.setOnAction(e -> window.close());
+        okButton.setOnAction(e -> {
+            confirmed = true;
+            window.close();
+        });
     }
 
     public boolean isConfirmed() {
